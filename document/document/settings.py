@@ -15,18 +15,17 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY='django-insecure-6o8u(wu4!fn3v&$z082iab2jr46r5&fo!r485l5&h0x5pw-!m_'
+#SECRET_KEY='django-insecure-6o8u(wu4!fn3v&$z082iab2jr46r5&fo!r485l5&h0x5pw-!m_'
 SECRET_KEY = os.environ.get('SECRET_KEY')
-#EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
@@ -133,8 +132,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR,'static')
-#STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
 if DEBUG:
 # location where you will store your static files
     STATICFILES_DIRS = [os.path.join(BASE_DIR,'document/static')]
