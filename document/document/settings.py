@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY='django-insecure-6o8u(wu4!fn3v&$z082iab2jr46r5&fo!r485l5&h0x5pw-!m_'
+# SECRET_KEY='django-insecure-6o8u(wu4!fn3v&$z082iab2jr46r5&fo!r485l5&h0x5pw-!m_'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 #EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
@@ -134,7 +134,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #location where django collect all static files
 #STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
 # location where you will store your static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'document/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
