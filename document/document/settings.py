@@ -132,12 +132,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#location where django collect all static files
+
 #STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 #STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'staticfiles'))
+if DEBUG:
 # location where you will store your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'document/static')]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR,'document/static')]
+else:
+#location where django collect all static files
+    STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
