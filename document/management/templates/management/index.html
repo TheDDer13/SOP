@@ -1,0 +1,16 @@
+{% extends "management/layout.html" %}
+
+{% block body %}
+    <p>Hello {{ request.user }}</p>
+    <p>Mission list</p>
+    <ol>
+        <li><a href="{% url 'regulationcreate' %}">Ban hanh quy trinh</a></li>
+        {% if perms.management.add_qa %}
+        <li><a href="{% url 'ListQA' %}">Quy trinh da ban hanh</a></li>
+        {% endif %}
+        {% if perms.management.add_qc %}
+        <li><a href="{% url 'ListQC' %}">Quy trinh da ban hanh</a></li>
+        {% endif %}
+        <li>Tai xuong bo quy trinh</li>
+    </ol>
+{% endblock %}
