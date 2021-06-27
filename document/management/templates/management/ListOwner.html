@@ -1,0 +1,36 @@
+{% extends "management/layout.html" %}
+
+{% block body %}
+  <h1>Danh sách tài liệu đã ban hành</h1>
+  <form method="get">
+    {{ listowner.form.as_p }}
+    <button type="submit">Tìm kiếm</button>
+  </form>
+  <br>
+  {% if listowner %}
+  <table>
+    <tr style="background: rgb(171, 177, 184);">
+      <th>Phân loại</th>
+      <th>Tên quy trình</th>
+      <th>Lần ban hành</th>
+      <th>Link</th>
+      <th>Sử dụng</th>
+    </tr>
+    {% for i in listowner.qs %}
+    <tr>
+      <td>{{ i.classified }}</td>
+      <td style="text-align: left;">{{ i.name }}</td>
+      <td>{{ i.revision}}</td>
+      <td><a href="{{ i.link }}" class="underline">X</a></td>
+      {% if i.recall == True %}
+        <td>Hết hiệu lực</td>
+      {% else %}
+        <td><a href="{% url 'Recall' i.id %}" class="underline">Thu hồi</a></td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <p>There are no documents.</p>
+  {% endif %} 
+{% endblock %}

@@ -1,6 +1,0 @@
-*.log
-*.pot
-*.pyc
-__pycache__/y
-db.sqlite3
-doc_env/

@@ -1,17 +1,19 @@
 from import_export import resources
-from .models import Regulation, QA, QC
+from .models import Regulation, Permission
+from django.contrib.auth.models import User
+
+class UserResource(resources.ModelResource):
+    class Meta:
+        model = User
+        fields = ('id','username',)
 
 class RegulationResource(resources.ModelResource):
     class Meta:
         model = Regulation
-        fields = ('name','code','revision','issued_date','issued_by','link',)
+        fields = ('id','name','code','revision','issued_date','issued_by','recall','link','classified')
 
-class QAResource(resources.ModelResource):
+class PermissionResource(resources.ModelResource):
     class Meta:
-        model = QA
-        fields = ('document','user',)
-
-class QCResource(resources.ModelResource):
-    class Meta:
-        model = QC
-        fields = ('document','user',)
+        model = Permission
+        import_id_fields = ('document_id','user_id',)
+        fields = ('document_id','user_id',)

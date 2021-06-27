@@ -1,0 +1,10 @@
+{% extends "management/layout.html" %}
+
+{% block body %}
+    <h1>Phân quyền xem tài liệu này cho các phòng ban:</h1>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Nhập">
+    </form>
+{% endblock %}

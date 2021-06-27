@@ -2,8 +2,9 @@
 
 {% block body %}
     <h1>Nhập hồ sơ mới</h1>
-    <form method="post">{% csrf_token %}
+    <form method="post" class="form">
+        {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Nhập">
+    <input type="submit" value="Nhập">
     </form>
 {% endblock %}

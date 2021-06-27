@@ -4,13 +4,8 @@
     <p>Hello {{ request.user }}</p>
     <p>Mission list</p>
     <ol>
-        <li><a href="{% url 'regulationcreate' %}">Ban hanh quy trinh</a></li>
-        {% if perms.management.add_qa %}
-        <li><a href="{% url 'ListQA' %}">Quy trinh da ban hanh</a></li>
-        {% endif %}
-        {% if perms.management.add_qc %}
-        <li><a href="{% url 'ListQC' %}">Quy trinh da ban hanh</a></li>
-        {% endif %}
-        <li>Tai xuong bo quy trinh</li>
+        <li><a href="{% url 'RegulationCreate' %}">Ban hành quy trình</a></li>
+        <li><a href="{% url 'ListOwner' %}">Quy trình đã ban hành</a></li>
+        <li><a href="{% url 'ListAll' %}">Quy trình được phân quyền</a></li>
     </ol>
 {% endblock %}
