@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Tài liệu</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-            {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'management/style.css' %}">
-    </head>
-    <body>
-        <h2><a href="{% url 'index' %}">Về trang chủ</a></h2>
-        {% block body %}
-        {% endblock %}
-    </body>
-    <footer>
-        {% block footer %}
-        {% endblock %}
-    </footer>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SOP-CPC1</title>
+    {% load static %}
+    <link href="{% static 'management/css/bootstrap.min.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-center">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'management/images/logo.png'%}" alt="Logo" style="width:60px;">
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'CreateSOP' %}">Ban hành mới</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ViewOwner' %}">Đã ban hành</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ViewPermission' %}">Được phân quyền</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ViewClassification' %}">Phân loại</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ViewAll' %}">Tra cứu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
+        </li>
+      </ul>
+    </nav>
+    {% block body %}
+    {% endblock %}
+    <script src="{% static 'management/js/jquery.min.js' %}"></script>
+    <script src="{% static 'management/js/bootstrap.min.js' %}"></script>
+    {% block footer %}
+    {% endblock %}
+  </body>
 </html>

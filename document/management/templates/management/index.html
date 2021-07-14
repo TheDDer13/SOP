@@ -1,11 +1,10 @@
-{% extends "management/layout.html" %}
+{% extends 'management/layout.html' %}
 
 {% block body %}
-    <p>Hello {{ request.user }}</p>
-    <p>Mission list</p>
-    <ol>
-        <li><a href="{% url 'RegulationCreate' %}">Ban hành quy trình</a></li>
-        <li><a href="{% url 'ListOwner' %}">Quy trình đã ban hành</a></li>
-        <li><a href="{% url 'ListAll' %}">Quy trình được phân quyền</a></li>
-    </ol>
+  <h1 class="page-header">Trang chủ</h1>
+  <p><a href="{% url 'CreateSOP' %}">Ban hành SOP mới</a></p>
+  <p><a href="{% url 'ViewOwner' %}">Danh sách SOP đã ban hành</a></p>
+  <p><a href="{% url 'ViewPermission' %}">Danh sách SOP được phân quyền</a></p>
+  <p><a href="{% url 'ViewClassification' %}">Phân loại SOP</a></p>
+  <p><a href="{% url 'ViewAll' %}">Tra cứu SOP theo Hệ thống Quản lý Chất lượng</a></p>
 {% endblock %}

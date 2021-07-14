@@ -15,15 +15,14 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY='django-insecure-6o8u(wu4!fn3v&$z082iab2jr46r5&fo!r485l5&h0x5pw-!m_'
+#SECRET_KEY='django-insecure-6o8u(wu4!fn3v&$z082iab2jr46r5&fo!r485l#5&h0x5pw-!m_'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
@@ -47,7 +46,12 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'import_export',
     'django_filters',
+    'widget_tweaks',
+    'bootstrap_modal_forms',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,7 +139,7 @@ STATIC_URL = '/static/'
 
 if DEBUG:
 # location where you will store your static files
-    STATICFILES_DIRS = [os.path.join(BASE_DIR,'document/static')]
+    STATICFILES_DIRS = [os.path.join(BASE_DIR,'management/static')]
 else:
 #location where django collect all static files
     STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')

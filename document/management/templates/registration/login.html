@@ -1,21 +1,18 @@
 {% extends "management/layout.html" %}
 
+{% load crispy_forms_tags %}
 {% block body %}
-    <h1>Log-in</h1>
-    <br>
-    {% if form.errors %}
-        <p>Username và password không đúng. Xin thử lại.</p>
-    {% else %}
-        <p>Điền form dưới đây để đăng nhập:</p>
-    {% endif %}
-
-    <div class="login-form">
-        <form method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="hidden" name="text" value="{{ next }}" />
-            <p><input type="submit" value="Log In" /></p>
-            <p><a href="{% url 'password_reset' %}">Quên password?</a></p>
-        </form>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <h1 class="mt-2">Đăng nhập</h1>
+            <hr class="mt-0 mb-4">
+            <form method="post" action="{% url 'login' %}" novalidate>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Đăng nhập</button>
+            </form>
+          </div>
+        </div>
     </div>
 {% endblock %}
