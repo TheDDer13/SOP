@@ -5,7 +5,6 @@ Website quản lý tài liệu SOP cho giữa các phòng ban của Công ty C�
 
 ## Nội dung
 * [Kỹ thuật](#kythuat)
-* [Tính năng công nghệ](#congnghe)
 * [Tính năng sử dụng](#sudung)
 * [Phát triển](#phattrien)
 
